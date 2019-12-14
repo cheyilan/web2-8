@@ -1,0 +1,117 @@
+/*
+* @Author: HP
+* @Date:   2019-12-11 19:34:23
+* @Last Modified by:   HP
+* @Last Modified time: 2019-12-13 17:28:25
+*/
+*{
+	padding: 0;
+	margin: 0;
+}
+ul,li{
+	list-style: none;
+}
+.box{
+	width: 1400px;
+	height: 450px;
+	margin: 100px auto;
+	position: relative;
+	overflow: hidden;
+	border-left: 2px black solid;
+	border-right: 2px black solid;
+}
+.long{
+	height: 20px;
+	width: 1400px;
+	background-color: #bebebe;
+	margin-bottom: 10px;
+}
+.long1{
+	height: 20px;
+	width: 1000px;
+	background-color: #bebebe;
+	margin: 0 auto;
+	/* border: 3px green solid; */
+	position: relative;
+}
+.img1{
+	width: 20px;
+	position: absolute;
+	left: 0px;
+}
+.p{
+	height: 20px;
+	position: relative;
+	position: absolute;
+	left: 30px;
+	width: 961px;
+	overflow: hidden;
+
+}
+.sp{
+	width: 450px;
+	/* float: right; */
+	position: absolute;
+	top: 0px;
+	right: -450px;
+	color: red;
+	overflow: hidden;
+	/* border: 3px black solid; */
+}
+.box1{
+	width: 1200px;
+	height: 380px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+.slide{
+	width: 8400px;
+	position: absolute;
+	left: -1200px;
+}
+.slide1{
+	width: 1200px;
+	overflow: hidden;
+	float: left;
+}
+.box>span{
+	display: block;
+	width: 30px;
+	height: 50px;
+	text-align: center;
+	cursor: pointer;
+	color: ;
+	top: 175px;
+	line-height: 50px;
+	background: rgb(255,0,0);
+	font-size: 30px;
+	position: absolute;
+	opacity: 0;
+}
+#left{
+	left: 30px;
+	color: white;
+}
+#right{
+	right: 30px;
+	color: white;
+}
+.nav{
+	position: absolute;
+	left: 500px;
+	bottom: 20px;
+}
+.nav>li{
+	float: left;
+	width: 20px;
+	height: 20px;
+	background: #ccc;
+	cursor: pointer;
+	margin: 0 10px;
+	border-radius: 50%;
+	text-align: center;
+}
+.nav .active{
+	background: red;
+}

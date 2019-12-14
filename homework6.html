@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel = "stylesheet" href = "css/style.css">
+</head>
+<body>
+	<div class = "box" id = "box">
+		<div class = "long" id = "long">
+			<div class = "long1" id = "long1">
+				<div class = "img1"><img src = "img/a15.png" alt = ""></div>
+				<div class = "p" id = "p">
+					<div class = "sp" id = "sp">
+						<span>[温馨提示]最近有不少不法分子在网上骗人请大家注意!!!</span>
+					</div>					
+				</div>
+			</div>			
+		</div>
+		<div id = "box1" class = "box1">	
+			<div class = "slide" id = "slide">
+				<div class = "slide1"><img src = "img/b5.png" alt = ""></div>
+				<div class = "slide1"><img src = "img/b1.png" alt = ""></div>
+				<div class = "slide1"><img src = "img/b2.png" alt = ""></div>
+				<div class = "slide1"><img src = "img/b3.png" alt = ""></div>
+				<div class = "slide1"><img src = "img/b4.png" alt = ""></div>
+				<div class = "slide1"><img src = "img/b5.png" alt = ""></div>
+				<div class = "slide1"><img src = "img/b1.png" alt = ""></div>
+			</div>
+			<span id = "left"><</span>
+			<span id = "right">></span>
+			<ul class = "nav" id = "nav">
+				<li class = "active">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+		</div>
+	</div>
+</body>
+	<script src = "js/animate.js"></script>
+	<script>
+		var box = document.getElementById("box");
+		var navList = document.getElementById("nav").children;
+		var slide = document.getElementById("slide");
+		var left = document.getElementById("left");
+		var right = document.getElementById("right");
+		var sp = document.getElementById("sp");
+		var index = 1;
+		var i = 1;
+		var timer;
+		var isMoving = false;
+		setInterval(function(){	
+			spStyle = getComputedStyle(sp);
+			spLeft = parseInt(spStyle["left"]);
+			if(spLeft == -400){
+				spLeft = 1000;
+			}	
+			console.log(spLeft);
+			sp.style.left = (spLeft - 1) + "px";
+			
+			// animate(sp,{left:-450},function(){
+			// 	if(sp.style.left == "-450px"){
+			// 		sp.style.left = "1000px";
+			// 	}
+			// });
+		},30);
+		function next(){
+			if(!isMoving){
+				isMoving = true;
+				index++;
+				navChange();
+				animate(slide,{left:-1200 * index},function(){
+					if(index == 6){
+						slide.style.left = "-1200px";
+						index = 1;
+					}
+					isMoving = false;
+				});//从-1200运动直到第六张图片
+			}			
+		}
+		function prev(){
+			if(!isMoving){
+				isMoving = true;
+				index--;
+				navChange();
+				animate(slide,{left:-1200 * index},function(){
+					if(index == 0){
+						slide.style.left = "-6000px";
+						index = 5;
+					}
+					isMoving = false;
+				});//从-1200运动直到第六张图片
+			}
+			
+		}
+		var timer = setInterval(next,2000);
+		box.onmouseover = function(){
+			animate(left,{opacity:50});
+			animate(right,{opacity:50});
+			clearInterval(timer);
+		}
+		box.onmouseout = function(){
+			animate(left,{opacity:0});
+			animate(right,{opacity:0});
+			timer = setInterval(next,2000);
+		}
+		right.onclick = next;
+		left.onclick = prev;
+		//小按钮点击事件
+		for(var i = 0;i < navList.length;i++){
+			navList[i].idx = i;
+			navList[i].onclick = function(){
+				index = this.idx + 1;
+				navChange();
+				animate(slide,{left:-1200 * index});
+			}
+		}
+		//小按钮背景色
+		function navChange(){
+			for(var i = 0;i < navList.length;i++){
+				navList[i].className = "";
+			}
+			if(index == 6)
+				navList[0].className = "active";
+			else if(index == 0)
+				navList[4].className = "active";
+			else
+				navList[index - 1].className = "active";
+		}
+
+	</script>
+</html>
