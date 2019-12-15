@@ -2,7 +2,7 @@
 * @Author: HP
 * @Date:   2019-12-11 19:34:23
 * @Last Modified by:   HP
-* @Last Modified time: 2019-12-15 17:49:03
+* @Last Modified time: 2019-12-15 18:01:21
 */
 *{
 	padding: 0;
@@ -92,12 +92,12 @@ ul,li{
 #left{
 	/* float: left; */
 	left: 30px;
-	/* color: white; */
+	color: white;
 }
 #right{
 	/* float: right; */
 	right: 30px;
-	/* color: white; */
+	color: white;
 }
 .nav{
 	position: absolute;
